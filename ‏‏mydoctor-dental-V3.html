@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>כתב שירות דנטלי - MyDoctor | ראשון מסוגו בישראל</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #55B9F4;
+  --primary-dark: #002D56;
+  --primary-light: #EBF4FF;
+  --accent: #FF6B35;
+  --accent-light: #FFF0E8;
+  --dark: #1A1A2E;
+  --dark-soft: #2D2D44;
+  --text: #333340;
+  --text-light: #6B6B80;
+  --bg: #FAFBFD;
+  --white: #FFFFFF;
+  --gold: #D4A843;
+  --gold-light: #FFF8E7;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-glow: 0 0 30px rgba(85,185,244,0.15);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  direction: rtl;
+}
+.en { font-family: 'Poppins', sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.price { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== TOP BAR ===== */
+.top-bar { background: var(--dark); color: white; padding: 10px 0; font-size: 14px; }
+.top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.top-bar a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s; }
+.top-bar a:hover { color: var(--primary); }
+.top-bar-links { display: flex; gap: 20px; align-items: center; }
+
+/* ===== NAVBAR ===== */
+.navbar { background: var(--white); padding: 16px 0; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--primary); }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo-wrapper { display: flex; align-items: center; gap: 12px; }
+.logo-wrapper img { height: 55px; }
+.nav-cta { display: flex; gap: 12px; align-items: center; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 50px; font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(85,185,244,0.3); }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(85,185,244,0.4); }
+.btn-accent { background: var(--accent); color: white; box-shadow: 0 4px 15px rgba(255,107,53,0.3); }
+.btn-accent:hover { background: #e55a28; transform: translateY(-2px); }
+.btn-whatsapp { background: #25D366; color: white; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
+.btn-whatsapp:hover { background: #1fb855; transform: translateY(-2px); }
+.btn-dark { background: var(--dark); color: white; }
+.btn-dark:hover { background: var(--dark-soft); transform: translateY(-2px); }
+
+/* ===== HERO ===== */
+.hero { background: linear-gradient(135deg, var(--dark) 0%, #1a2a4a 50%, var(--primary-dark) 100%); padding: 80px 0 100px; position: relative; overflow: hidden; color: white; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -30%; width: 80%; height: 200%; background: radial-gradient(circle, rgba(85,185,244,0.15) 0%, transparent 70%); animation: floatGlow 8s ease-in-out infinite; }
+.hero::after { content: ''; position: absolute; bottom: -20px; left: 0; right: 0; height: 80px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+@keyframes floatGlow { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,-20px); } }
+.hero .container { display: flex; align-items: center; gap: 60px; position: relative; z-index: 2; }
+.hero-content { flex: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.15); }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+.hero h1 .highlight { color: var(--primary); }
+.hero p { font-size: 18px; line-height: 1.8; opacity: 0.9; margin-bottom: 32px; max-width: 540px; }
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-visual { flex: 0 0 420px; position: relative; height: 500px; perspective: 1200px; }
+.hero-cards-stack { position: relative; width: 100%; height: 100%; }
+.hero-card { position: absolute; width: 340px; border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow-lg); color: var(--text); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.hero-card-front { background: var(--white); z-index: 2; top: 50px; right: 0; transform: rotate(2deg); }
+.hero-card-gold { background: linear-gradient(145deg, #FFFDF5 0%, var(--gold-light) 50%, #FFF3D6 100%); border: 2px solid var(--gold); z-index: 1; top: 0; right: 50px; transform: rotate(-3deg) scale(0.97); box-shadow: 0 8px 32px rgba(212,168,67,0.2); }
+.hero-cards-stack:hover .hero-card-front { transform: rotate(0deg) translateX(25px); box-shadow: 0 16px 48px rgba(0,0,0,0.18); }
+.hero-cards-stack:hover .hero-card-gold { transform: rotate(0deg) scale(1) translateX(-25px); box-shadow: 0 16px 48px rgba(212,168,67,0.3); }
+.hero-card h3 { font-size: 20px; color: var(--dark); margin-bottom: 16px; text-align: center; }
+.hero-card-gold .gold-label { background: linear-gradient(135deg, var(--gold), #C49A35); color: white; display: inline-block; padding: 4px 16px; border-radius: 50px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+.hero-card-gold .price-amount { color: var(--gold); }
+.hero-card-gold .price-currency { color: var(--gold); }
+.hero-card-gold .check-icon { background: var(--gold-light); color: var(--gold); }
+.hero-card-gold .btn { background: var(--gold); box-shadow: 0 4px 15px rgba(212,168,67,0.35); }
+.hero-card-gold .btn:hover { background: #C49A35; }
+.price-display { text-align: center; margin-bottom: 20px; }
+.price-amount { font-size: 52px; font-weight: 900; color: var(--primary); line-height: 1; }
+.price-currency { font-size: 22px; font-weight: 600; color: var(--primary); margin-right: 4px; }
+.price-period { font-size: 15px; color: var(--text-light); display: block; margin-top: 4px; }
+.hero-card-features { list-style: none; margin-bottom: 20px; }
+.hero-card-features li { padding: 6px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.hero-card-features li:last-child { border: none; }
+.hero-card-gold .hero-card-features li { border-color: rgba(212,168,67,0.15); }
+.check-icon { width: 22px; height: 22px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 13px; flex-shrink: 0; }
+
+/* ===== STATS ===== */
+.stats-strip { background: var(--white); padding: 30px 0; border-bottom: 1px solid #eee; }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; text-align: center; }
+.stat-number { font-size: 40px; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 15px; color: var(--text-light); font-weight: 500; }
+
+/* ===== SECTIONS ===== */
+.section-header { text-align: center; margin-bottom: 42px; }
+.section-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary-dark); padding: 6px 18px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.section-header h2 { font-size: clamp(28px,4vw,40px); font-weight: 800; color: var(--dark); margin-bottom: 16px; line-height: 1.3; }
+.section-header p { font-size: 17px; color: var(--text-light); max-width: 680px; margin: 0 auto; line-height: 1.7; }
+
+/* CALC NUDGE BANNERS */
+.calc-nudge { padding: 20px 0; }
+.calc-nudge-inner { display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, var(--primary-light) 0%, #d4e8ff 100%); border: 2px solid var(--primary); border-radius: var(--radius); padding: 20px 28px; text-decoration: none; color: var(--dark); transition: all 0.3s ease; cursor: pointer; }
+.calc-nudge-inner:hover { background: linear-gradient(135deg, #c8dfff 0%, #b0d0ff 100%); transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.calc-nudge-inner.pulse-border { animation: pulseBorder 2s ease-in-out infinite; }
+@keyframes pulseBorder { 0%,100% { border-color: var(--primary); box-shadow: 0 0 0 0 rgba(85,185,244,0.3); } 50% { border-color: var(--accent); box-shadow: 0 0 20px rgba(85,185,244,0.15); } }
+.calc-nudge-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 44px; }
+.calc-nudge-icon img { display: block; }
+.calc-nudge-text { flex: 1; font-size: 16px; line-height: 1.6; }
+.calc-nudge-text strong { color: var(--primary-dark); }
+.calc-nudge-arrow { font-size: 24px; color: var(--primary); flex-shrink: 0; animation: bounceLeft 1.5s ease-in-out infinite; }
+@keyframes bounceLeft { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-6px); } }
+
+/* FLOATING CALC BUTTON */
+.floating-calc { position: fixed; bottom: 24px; left: 24px; z-index: 999; display: flex; align-items: center; gap: 10px; background: var(--primary); color: white; padding: 14px 24px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 6px 24px rgba(85,185,244,0.4); transition: all 0.3s ease, opacity 0.4s ease; }
+.floating-calc:hover { background: var(--primary-dark); transform: scale(1.05); box-shadow: 0 8px 30px rgba(85,185,244,0.5); }
+.floating-calc .float-icon { font-size: 22px; }
+.floating-calc .float-arrow { display: flex; flex-direction: column; align-items: center; animation: floatArrowBounce 1.5s ease-in-out infinite; margin-right: -4px; }
+.floating-calc .float-arrow span { display: block; width: 8px; height: 8px; border-right: 2px solid white; border-bottom: 2px solid white; transform: rotate(45deg); margin: -3px 0; }
+.floating-calc .float-arrow span:nth-child(1) { opacity: 0.3; }
+.floating-calc .float-arrow span:nth-child(2) { opacity: 0.6; }
+.floating-calc .float-arrow span:nth-child(3) { opacity: 1; }
+@keyframes floatArrowBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+@media(max-width:768px) { .floating-calc span:not(.float-icon):not(.float-arrow span) { display: none; } .floating-calc { padding: 14px 16px; border-radius: 50%; } .floating-calc .float-arrow { display: none; } }
+
+/* WHY */
+.why-section { padding: 60px 0; background: var(--bg); }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.why-card { background: var(--white); border-radius: var(--radius); padding: 32px 28px; text-align: center; border: 1px solid #eee; transition: all 0.4s ease; position: relative; overflow: hidden; }
+.why-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary); transform: scaleX(0); transition: transform 0.4s ease; }
+.why-card:hover { border-color: var(--primary); box-shadow: var(--shadow-glow); transform: translateY(-5px); }
+.why-card:hover::before { transform: scaleX(1); }
+.why-icon { width: 76px; height: 76px; background: var(--primary-light); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px; transition: all 0.3s; }
+.why-card:hover .why-icon { background: var(--primary); transform: scale(1.1); }
+.why-card h4 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.why-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+/* PLANS */
+.plans-section { padding: 60px 0; background: var(--white); }
+.plans-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; max-width: 900px; margin: 0 auto; }
+.plan-card { border-radius: var(--radius); padding: 40px 32px; position: relative; overflow: hidden; border: 2px solid #eee; transition: all 0.4s; }
+.plan-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.plan-card.featured { border-color: var(--gold); background: linear-gradient(135deg, var(--gold-light) 0%, var(--white) 100%); }
+.plan-card.featured::before { content: '\2B50 \00A0 הפופולרי ביותר'; position: absolute; top: 20px; left: -32px; background: var(--gold); color: white; padding: 6px 40px; font-size: 12px; font-weight: 700; transform: rotate(45deg); }
+.plan-logo { height: 40px; margin-bottom: 10px; }
+.plan-name { font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.plan-desc { font-size: 14px; color: var(--text-light); margin-bottom: 24px; }
+.plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px; }
+.plan-price .amount { font-size: 48px; font-weight: 900; color: var(--primary); line-height: 1; }
+.plan-price .currency { font-size: 20px; font-weight: 700; color: var(--primary); }
+.plan-price .period { font-size: 14px; color: var(--text-light); margin-right: 8px; }
+.plan-features { list-style: none; margin-bottom: 28px; }
+.plan-features li { padding: 8px 0; display: flex; align-items: center; gap: 10px; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+.plan-features li:last-child { border: none; }
+.plan-features .included { color: var(--primary); }
+.plan-features .not-included { color: #ccc; }
+
+/* ===== CALCULATOR ===== */
+.calc-section { padding: 60px 0; background: linear-gradient(135deg, #f0f5ff 0%, #e0edff 100%); }
+.calc-wrapper { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
+.calc-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 32px; text-align: center; }
+.calc-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.calc-header p { opacity: 0.9; font-size: 16px; }
+.calc-controls { padding: 24px 32px; border-bottom: 1px solid #eee; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.plan-toggle { display: flex; background: #f0f0f0; border-radius: 50px; overflow: hidden; }
+.plan-toggle button { padding: 10px 24px; border: none; background: none; font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s; border-radius: 50px; }
+.plan-toggle button.active { background: var(--primary); color: white; }
+.calc-categories { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.cat-btn { padding: 8px 16px; border: 1px solid #ddd; background: white; border-radius: 50px; font-family: 'Heebo', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+.cat-btn.active { background: var(--dark); color: white; border-color: var(--dark); }
+.calc-body { padding: 0; max-height: 500px; overflow-y: auto; }
+.calc-body::-webkit-scrollbar { width: 6px; }
+.calc-body::-webkit-scrollbar-track { background: transparent; }
+.calc-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.treatment-row { display: grid; grid-template-columns: 1fr 120px 120px auto; align-items: center; padding: 14px 32px; border-bottom: 1px solid #f5f5f5; transition: background 0.2s; }
+.treatment-row:hover { background: #f5f8ff; }
+.treatment-row.selected { background: var(--primary-light); }
+.treatment-row.header { background: var(--dark); color: white; font-weight: 700; font-size: 14px; position: sticky; top: 0; z-index: 5; }
+.treatment-name { font-size: 15px; font-weight: 500; }
+.treatment-price { font-size: 14px; color: #999; text-align: center; }
+.treatment-row.selected .treatment-price { text-decoration: line-through; }
+.treatment-mydoctor { font-size: 14px; color: var(--primary); font-weight: 700; text-align: center; }
+.treatment-check { text-align: center; }
+.treatment-check input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--primary); cursor: pointer; }
+.treatment-row.locked { opacity: 0.45; pointer-events: none; }
+.treatment-row.locked .treatment-name::after { content: ' (Gold \05D1\05DC\05D1\05D3)'; font-size: 11px; color: var(--gold); font-weight: 600; }
+
+/* ===== ENHANCED CALC SUMMARY (DONUT CHART PANEL) ===== */
+.calc-summary {
+  background: linear-gradient(160deg, #091E33 0%, #0D2B47 40%, var(--dark) 100%);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.calc-summary::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(85,185,244,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.summary-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 28px;
+}
+
+.summary-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Donut Chart */
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.donut-chart {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.donut-chart svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+}
+.donut-chart .donut-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 14;
+}
+.donut-chart .donut-fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1);
+  filter: drop-shadow(0 0 8px rgba(85,185,244,0.6)) drop-shadow(0 0 20px rgba(85,185,244,0.3));
+}
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.donut-center-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+.donut-center-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--primary);
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(85,185,244,0.5);
+}
+
+/* Cost Rows */
+.summary-cost-rows {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 16px;
+}
+.summary-cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.summary-cost-row:last-child { border-bottom: none; }
+.summary-cost-label {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+}
+.summary-cost-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+}
+
+/* Savings Card */
+.summary-savings-card {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 32px rgba(85,185,244,0.3);
+}
+.summary-savings-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.summary-savings-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  color: white;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Months Card */
+.summary-months-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 16px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.summary-months-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--primary);
+  line-height: 1;
+}
+.summary-months-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+/* Fee Line */
+.summary-fee-line {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+
+/* CTA Area */
+.summary-cta-area {
+  width: 100%;
+  max-width: 500px;
+}
+.btn-wa-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Heebo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+.btn-wa-summary:hover {
+  background: #1EB756;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37,211,102,0.45);
+}
+.summary-phone-line {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+.summary-phone-line a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-weight: 600;
+}
+.summary-phone-line a:hover { color: var(--primary); }
+
+/* ===== SIMULATOR ENHANCED ===== */
+.sim-section { padding: 48px 0; background: linear-gradient(135deg, #f0f5ff 0%, #e0edff 100%); }
+.sim-section .section-header { margin-bottom: 32px; }
+.sim-wrapper { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
+.sim-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 20px 32px; text-align: center; }
+.sim-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.sim-header p { opacity: 0.9; font-size: 16px; }
+.sim-plans { display: flex; gap: 10px; padding: 16px 24px; background: #f0f5ff; border-bottom: 1px solid #eee; flex-wrap: wrap; align-items: center; }
+.sim-plans-label { font-size: 14px; font-weight: 700; color: var(--dark); flex-shrink: 0; }
+.sim-plan-tab { flex: 1; min-width: 140px; padding: 12px 14px; border-radius: var(--radius-sm); border: 2px solid transparent; background: var(--white); cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'Heebo', sans-serif; }
+.sim-plan-tab:hover { border-color: var(--primary-light); }
+.sim-plan-tab.active { background: var(--primary-light); border-color: var(--primary); }
+.sim-plan-tab.gold-active { background: var(--gold-light); border-color: var(--gold); }
+.sim-plan-tab-name { font-size: 14px; font-weight: 800; color: var(--dark); }
+.sim-plan-tab-price { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+.sim-body { display: flex; min-height: 500px; }
+.sim-treatments { flex: 1; overflow-y: auto; max-height: 600px; border-left: 1px solid #eee; }
+.sim-treatments::-webkit-scrollbar { width: 6px; }
+.sim-treatments::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.sim-body .calc-summary { width: 380px; flex-shrink: 0; border-radius: 0; }
+.sim-cat-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--primary-dark); padding: 10px 20px 4px; display: flex; align-items: center; gap: 8px; }
+.sim-cat-title .gold-badge { background: var(--gold-light); color: var(--gold); font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(212,168,67,0.3); }
+.sim-treatment-row { display: flex; align-items: center; padding: 8px 20px; border-bottom: 1px solid #f5f5f5; transition: background 0.2s; gap: 10px; }
+.sim-treatment-row:hover { background: #f5f8ff; }
+.sim-treatment-row.gold-only { opacity: 0.35; pointer-events: none; }
+.sim-treatment-row.gold-only.enabled { opacity: 1; pointer-events: auto; }
+.sim-treatment-name { flex: 1; font-size: 14px; font-weight: 500; }
+.sim-treatment-prices { display: flex; gap: 16px; min-width: 160px; }
+.sim-treatment-prices .market-price { font-size: 13px; color: #999; text-decoration: line-through; }
+.sim-treatment-prices .member-price { font-size: 13px; color: var(--primary); font-weight: 700; }
+.sim-qty { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.sim-qty button { width: 29px; height: 29px; border-radius: 7px; border: 1.5px solid #ddd; background: var(--white); font-size: 16px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--dark); transition: all 0.15s; font-family: inherit; }
+.sim-qty button:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.sim-qty span { font-size: 14px; font-weight: 800; min-width: 20px; text-align: center; color: var(--dark); }
+
+/* Steps */
+.steps-section { padding: 24px 0 60px; background: var(--bg); text-align: center; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.step-card { background: var(--white); border-radius: var(--radius); padding: 36px 24px; text-align: center; position: relative; box-shadow: var(--shadow-sm); transition: all 0.4s ease; }
+.step-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.step-number { position: absolute; top: -14px; right: 20px; width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; font-family: 'Poppins', sans-serif; }
+.step-icon { font-size: 2rem; display: block; margin-bottom: 16px; }
+.step-card h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.step-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+/* Testimonials */
+.testimonials-section { padding: 60px 0; background: var(--white); text-align: center; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.testimonial-card { background: var(--bg); border-radius: var(--radius); padding: 32px 24px; text-align: right; border: 1px solid #eee; transition: all 0.3s; }
+.testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.testimonial-stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; }
+.testimonial-text { font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 16px; }
+.testimonial-author { font-size: 13px; font-weight: 700; color: var(--primary-dark); }
+
+/* TREATMENTS TABLE */
+.treatments-section { padding: 60px 0 16px; background: var(--bg); }
+.treatments-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); }
+.treatments-table thead { background: var(--dark); color: white; }
+.treatments-table th { padding: 18px 24px; font-weight: 700; font-size: 15px; text-align: right; }
+.treatments-table td { padding: 16px 24px; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+.treatments-table tbody tr:hover { background: var(--primary-light); }
+.price-cell { font-weight: 700; color: var(--primary); }
+.market-price { color: #999; text-decoration: line-through; font-size: 13px; }
+.savings-cell { color: var(--accent); font-weight: 700; }
+
+/* FAQ */
+.faq-section { padding: 60px 0; background: var(--white); }
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border: 1px solid #eee; border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; }
+.faq-item:hover { border-color: var(--primary); }
+.faq-question { padding: 20px 24px; font-size: 16px; font-weight: 700; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: none; border: none; width: 100%; text-align: right; font-family: 'Heebo', sans-serif; transition: background 0.3s; }
+.faq-question:hover { background: var(--primary-light); }
+.faq-arrow { transition: transform 0.3s; font-size: 20px; color: var(--primary); }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer-inner { padding: 0 24px 20px; font-size: 15px; color: var(--text-light); line-height: 1.8; }
+
+/* CTA */
+.cta-section { padding: 60px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); }
+.cta-section h2 { font-size: clamp(28px,4vw,40px); font-weight: 800; margin-bottom: 16px; position: relative; z-index: 2; }
+.cta-section p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-inline: auto; position: relative; z-index: 2; }
+.cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; z-index: 2; }
+
+/* BUSINESS */
+.business-section { padding: 60px 0; background: linear-gradient(135deg, var(--dark) 0%, #1a2a4a 50%, #0d1e33 100%); color: white; position: relative; overflow: hidden; }
+.business-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.business-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+.business-content h2 { font-size: clamp(28px,4vw,38px); font-weight: 800; margin-bottom: 20px; line-height: 1.3; }
+.business-content p { font-size: 17px; line-height: 1.8; opacity: 0.85; margin-bottom: 28px; }
+.business-benefits { list-style: none; margin-bottom: 36px; }
+.business-benefits li { padding: 10px 0; display: flex; align-items: center; gap: 12px; font-size: 16px; }
+.benefit-check { width: 28px; height: 28px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.business-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+.business-stat { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 32px 24px; text-align: center; transition: all 0.3s; }
+.business-stat:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
+.business-stat .stat-number { font-size: 36px; font-weight: 900; color: var(--primary); margin-bottom: 8px; }
+.business-stat .stat-label { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+/* FOOTER */
+.footer { background: var(--dark); color: white; padding: 36px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand img { height: 50px; margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; opacity: 0.7; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--primary); }
+.footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; padding: 4px 0; font-size: 14px; transition: color 0.3s; }
+.footer-col a:hover { color: var(--primary); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; opacity: 0.6; }
+
+/* INSTAGRAM CAROUSEL */
+.insta-carousel { padding: 34px 0; overflow: hidden; }
+.insta-carousel .container { max-width: 1200px; }
+.insta-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 0;
+}
+.insta-track::-webkit-scrollbar { display: none; }
+.insta-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background: var(--white);
+}
+.insta-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+.insta-card img { width: 100%; height: auto; display: block; }
+.insta-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.insta-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(85,185,244,0.25);
+  transition: all 0.3s;
+}
+.insta-dot.active { background: var(--primary); width: 24px; border-radius: 4px; }
+.insta-carousel-dark { background: linear-gradient(135deg, #0d1e33 0%, var(--dark) 100%); }
+.insta-carousel-dark .insta-card { box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+.insta-carousel-dark .insta-card:hover { box-shadow: 0 8px 40px rgba(85,185,244,0.2); }
+.insta-carousel-dark .insta-dot { background: rgba(255,255,255,0.2); }
+.insta-carousel-dark .insta-dot.active { background: var(--primary); }
+.insta-carousel-light { background: var(--bg); }
+
+/* CALC LINK ARROWS */
+.calc-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.calc-link-arrow {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  animation: calcArrowPulse 1.5s ease-in-out infinite;
+}
+.calc-link-arrow span {
+  display: block;
+  width: 7px; height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  margin: 0 -2px;
+}
+.calc-link-arrow.arrow-left span { transform: rotate(-45deg); }
+.calc-link-arrow.arrow-right span { transform: rotate(135deg); }
+.calc-link-arrow span:nth-child(1) { opacity: 0.3; }
+.calc-link-arrow span:nth-child(2) { opacity: 0.6; }
+.calc-link-arrow span:nth-child(3) { opacity: 1; }
+@keyframes calcArrowPulse {
+  0%,100% { transform: translateX(0); }
+  50% { transform: translateX(-3px); }
+}
+@media(max-width:768px) {
+  .insta-card { flex: 0 0 85%; min-width: 260px; }
+}
+@media(max-width:480px) {
+  .insta-card { flex: 0 0 90%; min-width: 240px; }
+  .insta-carousel { padding: 28px 0; }
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero .container{flex-direction:column;text-align:center}
+  .hero p{margin-inline:auto}
+  .hero-buttons{justify-content:center}
+  .hero-visual{flex:none;width:100%;max-width:420px;height:480px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .business-inner{grid-template-columns:1fr}
+  .treatment-row{grid-template-columns:1fr 90px 90px auto;padding:12px 16px}
+  .sim-body{flex-direction:column}
+  .sim-treatments{max-height:400px;border-left:none;border-bottom:1px solid #eee}
+}
+@media(max-width:768px){
+  .top-bar-links{display:none}
+  .hero-visual{height:auto!important;max-width:360px!important}
+  .hero-cards-stack{display:flex;flex-direction:column;gap:20px}
+  .hero-card{position:relative!important;transform:none!important;top:auto!important;right:auto!important;width:100%!important}
+  .hero-cards-stack:hover .hero-card-front,.hero-cards-stack:hover .hero-card-gold{transform:none!important}
+  .why-grid,.plans-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+  .calc-controls{flex-direction:column}
+  .treatment-row{font-size:13px}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonials-grid{grid-template-columns:1fr}
+  .sim-treatment-row{flex-wrap:wrap;gap:8px}
+  .sim-treatment-prices{min-width:unset}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .stat-number{font-size:32px}
+  .hero-buttons,.cta-buttons{flex-direction:column;align-items:center}
+  .business-stats{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:all 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.md-logo{height:22px;vertical-align:middle}
+.md-logo-sm{height:16px;vertical-align:middle}
+.md-logo-lg{height:32px;vertical-align:middle}
+.inline-icon{height:16px;vertical-align:middle}
+.inline-icon-lg{height:18px;vertical-align:middle}
+.star-row{display:inline-flex;gap:2px;align-items:center}
+.star-row img{height:16px;width:16px;filter:drop-shadow(0 0 3px rgba(212,168,67,0.5))}
+
+/* SCROLL ARROW */
+.scroll-arrow {
+  text-align: center;
+  padding: 20px 0 8px;
+  position: relative;
+  z-index: 5;
+}
+.scroll-arrow a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary);
+  gap: 4px;
+  transition: color 0.3s;
+}
+.scroll-arrow a:hover { color: var(--primary-dark); }
+.scroll-arrow-label {
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--primary-light);
+  padding: 6px 18px;
+  border-radius: 50px;
+}
+.scroll-arrow-chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+.scroll-arrow-chevrons span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-right: 2.5px solid var(--primary);
+  border-bottom: 2.5px solid var(--primary);
+  transform: rotate(45deg);
+  margin: -5px 0;
+}
+.scroll-arrow-chevrons span:nth-child(1) { opacity: 0.25; }
+.scroll-arrow-chevrons span:nth-child(2) { opacity: 0.55; }
+.scroll-arrow-chevrons span:nth-child(3) { opacity: 0.9; }
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div><img src="iMg and logo/image-CO4KOn0XgL7vM3OGalhMPXtGIlprSl.png" alt="" style="height:18px;vertical-align:middle"> <strong>כתב שירות דנטלי</strong> -ראשון מסוגו בישראל | משווק מורשה <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo"></div>
+    <div class="top-bar-links">
+      <a href="tel:0587877877"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> 0587-877-877</a>
+      <a href="https://wa.me/972587877877" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" class="inline-icon"> <span class="en">WhatsApp</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo-wrapper">
+      <img src="logo-transparent.webp" alt="MyDoctor Logo">
+      <span style="font-size:13px;color:var(--text-light);border-right:2px solid var(--primary);padding-right:12px">משווק מורשה</span>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:0587877877" class="btn btn-primary"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> 0587-877-877</a>
+      <a href="https://wa.me/972587877877" class="btn btn-whatsapp" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" class="inline-icon"> <span class="en">WhatsApp</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge"><img src="iMg and logo/image-CO4KOn0XgL7vM3OGalhMPXtGIlprSl.png" alt="" style="height:18px;vertical-align:middle"> כתב שירות דנטלי -ראשון מסוגו בישראל</div>
+      <h1>תפסיקו לשלם הון <br><span class="highlight">על טיפולי שיניים</span></h1>
+      <p>כתב השירות הדנטלי של <img src="logo-transparent.webp" alt="MyDoctor" style="height:24px;vertical-align:middle"> מעניק לכם כיסוי מקיף -סתימות, כתרים, עקירות, צילומי CT ואפילו יישור שיניים. בלי הצהרת בריאות, בלי תקופת אכשרה.</p>
+      <div class="hero-buttons">
+        <a href="tel:0587877877" class="btn btn-accent"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> לייעוץ חינם -0587-877-877</a>
+        <a href="#calculator" class="btn" style="background:white;color:var(--primary)"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:18px;vertical-align:middle"> מחשבון חיסכון</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-cards-stack">
+        <!-- BACK CARD: Dental Gold -->
+        <div class="hero-card hero-card-gold" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">
+          <div style="text-align:center;margin-bottom:8px">
+            <span class="gold-label">PREMIUM</span>
+          </div>
+          <div style="text-align:center;margin-bottom:8px"><img src="logo-transparent.webp" alt="MyDoctor" style="height:30px"></div>
+          <h3><span class="en">Dental Gold</span></h3>
+          <div class="price-display">
+            <span class="price-currency">₪</span><span class="price-amount">74</span>
+            <span class="price-period">לחודש לאדם</span>
+          </div>
+          <ul class="hero-card-features">
+            <li><span class="check-icon">✓</span> כל טיפולי <span class="en">Dental</span>+</li>
+            <li><span class="check-icon">✓</span> אורתודונטיה לילדים ומבוגרים</li>
+            <li><span class="check-icon">✓</span> יישור שיניים שקוף</li>
+            <li><span class="check-icon">✓</span> ריטיינרים</li>
+          </ul>
+          <a href="tel:0587877877" class="btn" style="width:100%;justify-content:center;color:white" onclick="event.stopPropagation()"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-NddQdftBhn6rEWlENfoUc4kpma0Ixv.png" alt="" style="height:18px;vertical-align:middle"> הצטרפו ל-<span class="en">Gold</span></a>
+        </div>
+        <!-- FRONT CARD: Dental+ -->
+        <div class="hero-card hero-card-front" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">
+          <div style="text-align:center;margin-bottom:8px"><img src="logo-transparent.webp" alt="MyDoctor" style="height:32px"></div>
+          <h3><span class="en">Dental</span>+</h3>
+          <div class="price-display">
+            <span class="price-currency">₪</span><span class="price-amount">65</span>
+            <span class="price-period">לחודש לאדם</span>
+          </div>
+          <ul class="hero-card-features">
+            <li><span class="check-icon">✓</span> סתימות וטיפולי שורש</li>
+            <li><span class="check-icon">✓</span> כתרים ועקירות</li>
+            <li><span class="check-icon">✓</span> צילומי שיניים כולל CT</li>
+            <li><span class="check-icon">✓</span> ללא הצהרת בריאות</li>
+          </ul>
+          <a href="tel:0587877877" class="btn btn-primary" style="width:100%;justify-content:center" onclick="event.stopPropagation()"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-NddQdftBhn6rEWlENfoUc4kpma0Ixv.png" alt="" style="height:18px;vertical-align:middle"> הצטרפו עכשיו</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL ARROW -->
+<div class="scroll-arrow">
+  <a href="#calculator">
+    <span class="scroll-arrow-label"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:18px;vertical-align:middle"> מחשבון חיסכון</span>
+    <div class="scroll-arrow-chevrons">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </a>
+</div>
+
+<!-- STATS -->
+<section class="stats-strip fade-in"><div class="container"><div class="stats-grid">
+  <div class="stat-item"><div class="stat-number">1,000+</div><div class="stat-label">נותני שירות ברחבי הארץ</div></div>
+  <div class="stat-item"><div class="stat-number">80+</div><div class="stat-label">סניפים ומרפאות</div></div>
+  <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">ללא הצהרת בריאות</div></div>
+  <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">שירות ותמיכה</div></div>
+</div></div></section>
+
+<!-- CALC NUDGE BANNER 1 -->
+<section class="calc-nudge fade-in"><div class="container">
+  <a href="#calculator" class="calc-nudge-inner">
+    <span class="calc-nudge-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="מחשבון" style="width:36px;height:36px"></span>
+    <span class="calc-nudge-text"><strong>כמה תחסכו?</strong> בדקו עכשיו במחשבון החיסכון האינטראקטיבי שלנו</span>
+    <span class="calc-nudge-arrow">←</span>
+  </a>
+</div></section>
+
+<!-- WHY MYDOCTOR -->
+<section class="why-section fade-in"><div class="container">
+  <div class="section-header"><div class="section-tag"><img src="iMg and logo/image-XlvMapFLl1YIaWCw5ebWOvBR6cNnK7.png" alt="" style="height:20px;vertical-align:middle"> הפתרון</div><h2>למה <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-lg"> ?</h2><p>כתב השירות הדנטלי שמשנה את הכללים</p></div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-CZxT18DNf12Vjv8rrZv8V0tddRi9Xu.png" alt="הגנה" style="width:52px;height:52px"></div><h4>ללא הצהרת בריאות</h4><p>כולם מתקבלים ללא שאלות! לא צריך למלא טפסים רפואיים ולא נדרשת בדיקה מקדימה -פשוט נרשמים ומתחילים.</p></div>
+    <div class="why-card"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-VgWX4UmDW5pY171o65GSc2VFAIfUMl.png" alt="מהיר" style="width:52px;height:52px"></div><h4>תקופת אכשרה קצרה</h4><p>רק 3 חודשי המתנה -ואז נהנים ממחירים מוזלים על כלל הטיפולים. קצר ומשתלם בהשוואה לביטוחים מסורתיים.</p></div>
+    <div class="why-card"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-rW3KN717rl4aTnOGRIuS82n0gSwwLQ.png" alt="מרפאות" style="width:52px;height:52px"></div><h4>רשת ענקית של מרפאות</h4><p>מעל 80 סניפים ו-6,000 נותני שירות בפריסה ארצית. תמיד תמצאו מרפאה קרובה לבית או למשרד.</p></div>
+    <div class="why-card"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-CO4KOn0XgL7vM3OGalhMPXtGIlprSl.png" alt="שיניים" style="width:52px;height:52px"></div><h4>טיפולים מקיפים</h4><p>סתימות, שורשים, כתרים, עקירות, CT, אורתודונטיה ועוד. כיסוי רחב שמאפשר טיפול מלא בלי הפתעות.</p></div>
+    <div class="why-card"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-iSpZcrHmxvZHZPeIwv3rttJNK7TGqu.png" alt="משפחה" style="width:52px;height:52px"></div><h4>לכל המשפחה</h4><p>מחירים מיוחדים למשפחות. הוסיפו בני זוג וילדים בתעריפים מוזלים ותנו לכל המשפחה טיפול ברמה הגבוהה ביותר.</p></div>
+    <a href="#calculator" class="why-card" style="text-decoration:none;color:inherit"><div class="why-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-oKmcX6Scsb03ofRIcpVfqdCdpSBiC3.png" alt="חיסכון" style="width:52px;height:52px"></div><h4>חיסכון של אלפי שקלים</h4><p>טיפול שורש שעולה 2,500 ₪ -אצלנו 0 ₪.<br><strong style="color:var(--primary)">בדקו במחשבון ←</strong></p></a>
+  </div>
+</div></section>
+
+<!-- PLANS -->
+<section class="plans-section fade-in" id="plans"><div class="container">
+  <div class="section-header"><div class="section-tag"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JWrKzAbDTTpB1o29JJb88rMrUMXAqW.png" alt="" style="height:18px;vertical-align:middle"> מסלולים</div><h2>בחרו את המסלול שמתאים לכם</h2><p>שני מסלולים, שניהם ללא הצהרת בריאות וללא תקופת אכשרה</p></div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <img src="logo-transparent.webp" alt="MyDoctor" class="plan-logo">
+      <div class="plan-name"><span class="en">Dental</span>+</div>
+      <div class="plan-desc">מסלול בסיסי -כיסוי מקיף לטיפולי שיניים</div>
+      <div class="plan-price"><span class="currency">₪</span><span class="amount">65</span><span class="period">/ לחודש</span></div>
+      <ul class="plan-features">
+        <li><span class="included">✓</span> סתימות</li>
+        <li><span class="included">✓</span> טיפולי שורש</li>
+        <li><span class="included">✓</span> עקירות רגילות וכירורגיות</li>
+        <li><span class="included">✓</span> כתרים</li>
+        <li><span class="included">✓</span> צילומי שיניים כולל CT ופנורמי</li>
+        <li><span class="included">✓</span> בונוס: טיפולי תא לחץ חמצן</li>
+        <li><span class="not-included">✗</span> אורתודונטיה</li>
+      </ul>
+      <a href="tel:0587877877" class="btn btn-primary" style="width:100%;justify-content:center">הצטרפו ל-<span class="en">Dental</span>+</a>
+      <a href="#calculator" class="calc-link-row" style="color:var(--primary)"><span class="calc-link-arrow arrow-right"><span></span><span></span><span></span></span> <img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:14px;vertical-align:middle"> חשבו כמה תחסכו <span class="calc-link-arrow arrow-left"><span></span><span></span><span></span></span></a>
+    </div>
+    <div class="plan-card featured">
+      <img src="logo-transparent.webp" alt="MyDoctor" class="plan-logo">
+      <div class="plan-name"><span class="en">Dental Gold</span></div>
+      <div class="plan-desc">מסלול פרימיום -כולל אורתודונטיה לילדים ומבוגרים</div>
+      <div class="plan-price"><span class="currency">₪</span><span class="amount">74</span><span class="period">/ לחודש</span></div>
+      <ul class="plan-features">
+        <li><span class="included">✓</span> כל מה שיש ב-<span class="en">Dental</span>+</li>
+        <li><span class="included">✓</span> אורתודונטיה לילדים</li>
+        <li><span class="included">✓</span> אורתודונטיה למבוגרים</li>
+        <li><span class="included">✓</span> יישור שיניים שקוף</li>
+        <li><span class="included">✓</span> ריטיינרים</li>
+        <li><span class="included">✓</span> בונוס: טיפולי תא לחץ חמצן</li>
+      </ul>
+      <a href="tel:0587877877" class="btn btn-accent" style="width:100%;justify-content:center"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-NddQdftBhn6rEWlENfoUc4kpma0Ixv.png" alt="" style="height:18px;vertical-align:middle"> הצטרפו ל-<span class="en">Dental Gold</span></a>
+      <a href="#calculator" class="calc-link-row" style="color:var(--gold)"><span class="calc-link-arrow arrow-right"><span></span><span></span><span></span></span> <img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:14px;vertical-align:middle"> חשבו כמה תחסכו <span class="calc-link-arrow arrow-left"><span></span><span></span><span></span></span></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- INSTAGRAM CAROUSEL 2: Solutions -->
+<section class="insta-carousel insta-carousel-light fade-in">
+  <div class="container">
+    <div class="insta-track">
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_p1d3fop1d3fop1d3.png" alt="הדלת הפתוחה - קבלה מיידית עם MyDoctor"></div>
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_ptivl0ptivl0ptiv.png" alt="דנטל פלוס - תחזוקה שוטפת וראש שקט"></div>
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_ptivl0ptivl0ptiv (1).png" alt="דנטל גולד - מעטפת ההגנה המקיפה ביותר"></div>
+    </div>
+    <div class="insta-dots">
+      <span class="insta-dot active"></span>
+      <span class="insta-dot"></span>
+      <span class="insta-dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- CALC NUDGE BANNER 2 -->
+<section class="calc-nudge fade-in"><div class="container">
+  <a href="#calculator" class="calc-nudge-inner pulse-border">
+    <span class="calc-nudge-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-BkZNLc7O2vCGCXXFm5uD2hypleNGCV.png" alt="" style="width:36px;height:36px"></span>
+    <span class="calc-nudge-text"><strong>לפני שממשיכים —</strong> סמנו את הטיפולים שאתם צריכים וגלו כמה תחסכו בפועל</span>
+    <span class="calc-nudge-arrow">←</span>
+  </a>
+</div></section>
+
+<!-- ===== CALCULATOR/SIMULATOR ===== -->
+<section class="sim-section fade-in" id="calculator">
+  <div class="container">
+    <div class="section-header"><div class="section-tag"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:18px;vertical-align:middle"> מחשבון חיסכון</div><h2>גלו כמה תחסכו עם <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-lg"></h2><p>סמנו את הטיפולים שאתם צריכים וראו בזמן אמת כמה תחסכו</p></div>
+    <div class="sim-wrapper">
+      <div class="sim-header">
+        <h2><img src="iMg and logo/image-CO4KOn0XgL7vM3OGalhMPXtGIlprSl.png" alt="" style="height:26px;vertical-align:middle"> מחשבון חיסכון דנטלי</h2>
+        <p>בחרו מסלול, בחרו כמויות -ותראו כמה תחסכו</p>
+      </div>
+      <div class="sim-plans">
+        <div class="sim-plans-label">מסלול:</div>
+        <button class="sim-plan-tab active" data-plan="plus"><div class="sim-plan-tab-name"><img src="logo-transparent.webp" alt="" style="height:14px;vertical-align:middle;margin-left:4px"> דנטל +</div><div class="sim-plan-tab-price"><span class="price">₪65</span>/חודש</div></button>
+        <button class="sim-plan-tab" data-plan="gold"><div class="sim-plan-tab-name"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="" style="height:14px;vertical-align:middle;margin-left:3px"> דנטל גולד</div><div class="sim-plan-tab-price"><span class="price">₪74</span>/חודש · יישור</div></button>
+        <button class="sim-plan-tab" data-plan="couple"><div class="sim-plan-tab-name"><img src="logo-transparent.webp" alt="" style="height:14px;vertical-align:middle;margin-left:4px"> זוג דנטל+</div><div class="sim-plan-tab-price"><span class="price">₪110</span>/חודש</div></button>
+      </div>
+      <div class="sim-body">
+        <div class="sim-treatments" id="simTreatments">
+          <!-- Populated by JS -->
+        </div>
+        <div class="calc-summary" id="calcSummary">
+          <div class="summary-inner">
+            <div class="summary-title"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-73pNGHJBFF75t0zRsAgQInW9DAM4vd.png" alt="" style="height:20px;vertical-align:middle"> החיסכון שלך</div>
+            <div class="donut-wrap">
+              <div class="donut-chart">
+                <svg viewBox="0 0 160 160">
+                  <circle class="donut-bg" cx="80" cy="80" r="60"></circle>
+                  <circle class="donut-fill" id="donutFill" cx="80" cy="80" r="60" stroke-dasharray="376.99" stroke-dashoffset="376.99"></circle>
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-center-label">חיסכון</div>
+                  <div class="donut-center-value" id="donutPercent">0%</div>
+                </div>
+              </div>
+            </div>
+            <div class="summary-cost-rows">
+              <div class="summary-cost-row">
+                <span class="summary-cost-label">עלות בשוק</span>
+                <span class="summary-cost-value" id="sumMarket"><span class="price">₪0</span></span>
+              </div>
+              <div class="summary-cost-row">
+                <span class="summary-cost-label">עלות אצלנו</span>
+                <span class="summary-cost-value" style="color:var(--primary)" id="sumOurs"><span class="price">₪0</span></span>
+              </div>
+            </div>
+            <div class="summary-savings-card">
+              <div class="summary-savings-label"><img src="iMg and logo/image-XlvMapFLl1YIaWCw5ebWOvBR6cNnK7.png" alt="" style="height:18px;vertical-align:middle"> סה"כ חיסכון</div>
+              <div class="summary-savings-value" id="sumSavings"><span class="price">₪0</span></div>
+            </div>
+            <div class="summary-months-card">
+              <div class="summary-months-value" id="sumMonths">0</div>
+              <div class="summary-months-label">חודשי מנוי מכוסים</div>
+            </div>
+            <div class="summary-fee-line" id="sumFeeLine">דמי מנוי <span class="price">₪65</span>/חודש</div>
+            <div class="summary-cta-area">
+              <a href="https://wa.me/972587877877?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%A1%D7%99%D7%9E%D7%95%D7%9C%D7%98%D7%95%D7%A8%20%D7%95%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%A6%D7%98%D7%A8%D7%A3" target="_blank" class="btn-wa-summary">הצטרפו דרך וואטסאפ <img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-LxbDZUY1gzuzF4AEv0OHAqsSGpAng8.png" alt="" class="inline-icon"></a>
+              <div class="summary-phone-line"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> <a href="tel:0587877877">0587-877-877</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="treatments-section fade-in"><div class="container">
+  <div class="section-header"><div class="section-tag"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-73pNGHJBFF75t0zRsAgQInW9DAM4vd.png" alt="" style="height:18px;vertical-align:middle"> השוואת מחירים</div><h2>שוק פרטי vs <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-lg"></h2><p>השוואה שקופה - ישירות מהאתר</p></div>
+  <table class="treatments-table">
+    <thead><tr><th>טיפול</th><th>שוק פרטי</th><th>מחיר <img src="logo-transparent.webp" alt="MyDoctor" style="height:18px;vertical-align:middle;filter:brightness(10)"></th><th>חיסכון</th></tr></thead>
+    <tbody>
+      <tr><td>בדיקת מומחה</td><td class="market-price"><span class="price">₪286</span></td><td class="price-cell"><span class="price">₪90</span></td><td class="savings-cell">↓ <span class="price">₪196</span></td></tr>
+      <tr><td>טיפול שורש (2 תעלות)</td><td class="market-price"><span class="price">₪1,000</span></td><td class="price-cell"><span class="price">₪260</span></td><td class="savings-cell">↓ <span class="price">₪740</span></td></tr>
+      <tr><td>כתר זירקוניה</td><td class="market-price"><span class="price">₪4,000</span></td><td class="price-cell"><span class="price">₪2,100</span></td><td class="savings-cell">↓ <span class="price">₪1,900</span></td></tr>
+      <tr><td>שתל דנטלי</td><td class="market-price"><span class="price">₪3,000</span></td><td class="price-cell"><span class="price">₪1,650</span></td><td class="savings-cell">↓ <span class="price">₪1,350</span></td></tr>
+      <tr><td>עקירה רגילה</td><td class="market-price"><span class="price">₪375</span></td><td class="price-cell"><span class="price">₪95</span></td><td class="savings-cell">↓ <span class="price">₪280</span></td></tr>
+      <tr><td>יישור שיניים (<span class="en">Gold</span>)</td><td class="market-price"><span class="price">₪14,300</span></td><td class="price-cell"><span class="price">₪8,150</span></td><td class="savings-cell">↓ <span class="price">₪6,150</span></td></tr>
+    </tbody>
+  </table>
+  <div style="text-align:center;margin-top:28px">
+    <a href="#calculator" class="btn btn-primary" style="font-size:18px;padding:16px 40px"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:20px;vertical-align:middle"> חשבו את החיסכון שלכם ←</a>
+  </div>
+</div></section>
+
+<!-- STEPS -->
+<section class="steps-section fade-in"><div class="container">
+  <div class="section-header"><h2>צעדים פשוטים ואתם בפנים</h2></div>
+  <div class="steps-grid">
+    <div class="step-card"><span class="step-number">1</span><span class="step-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-yFtjfKzQBiN4N3in0hmfzJN0a4u71g.png" alt="" style="height:52px"></span><h3>השאירו פרטים</h3><p>מלאו טופס - נחזור תוך שעות</p></div>
+    <div class="step-card"><span class="step-number">2</span><span class="step-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-JWrKzAbDTTpB1o29JJb88rMrUMXAqW.png" alt="" style="height:52px"></span><h3>בחרו מסלול</h3><p>ניעזר לכם לבחור נכון</p></div>
+    <div class="step-card"><span class="step-number">3</span><span class="step-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-jZvuQMZCi8XuT0afzKwdnQXwS7maTf.png" alt="" style="height:52px"></span><h3>3 חודשי אכשרה</h3><p>ואז מחירים מוזלים על הכל</p></div>
+    <div class="step-card"><span class="step-number">4</span><span class="step-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-3QgwSXrWjfSV2HYyhqEm4POcAvaRqP.png" alt="" style="height:52px"></span><h3>חוסכים!</h3><p>הציגו כרטיס ושלמו מוזל</p></div>
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section fade-in"><div class="container">
+  <div class="section-header"><div class="section-tag"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" style="height:18px;vertical-align:middle"> לקוחות מדברים</div><h2>מה אומרים המנויים שלנו</h2></div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars"><span class="star-row"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"></span></div>
+      <div class="testimonial-text">חיסכתי <span class="price">₪4,200</span> על כתר וטיפול שורש. תוך חצי שנה כיסיתי את עלות המנוי לשנה שלמה. המחירים פשוט אמיתיים.</div>
+      <div class="testimonial-author">אבי ש., תל אביב</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars"><span class="star-row"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"></span></div>
+      <div class="testimonial-text">יישור שיניים לבת שלי עלה <span class="price">₪8,150</span> לעומת <span class="price">₪17,000</span> שביקשו ממני במרפאה אחרת. ההפרש עזר לנו לממן חופשה משפחתית.</div>
+      <div class="testimonial-author">רחל מ., חיפה</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars"><span class="star-row"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-OhBdiUi1Ac3hO893KYRkNNtW2OQSs6.png" alt="★"></span></div>
+      <div class="testimonial-text">כסובל מבעיות שיניים כרוניות - דחיתי טיפולים שנים. עם <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-sm"> אין לי עוד סיבה לדחות. שקוף ומקצועי.</div>
+      <div class="testimonial-author">משה כ., ירושלים</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="faq-section fade-in"><div class="container">
+  <div class="section-header"><div class="section-tag"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-GHLlVvoifSdvzv5ojMTLUf8GOVIeee.png" alt="" style="height:18px;vertical-align:middle"> שאלות נפוצות</div><h2>שאלות ותשובות</h2></div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">מה ההבדל בין כתב שירות לביטוח שיניים?<span class="faq-arrow">▼</span></button><div class="faq-answer"><div class="faq-answer-inner">כתב שירות מעניק גישה ישירה לטיפולים ללא הגשת תביעות והחזרים. אין תקופת אכשרה ואין הצהרת בריאות. מגיעים למרפאה, מציגים את כרטיס המנוי, ומקבלים טיפול.</div></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">מהי תקופת האכשרה?<span class="faq-arrow">▼</span></button><div class="faq-answer"><div class="faq-answer-inner">תקופת האכשרה היא 3 חודשים בלבד -קצרה בהרבה מביטוחים מסורתיים. לאחר 3 חודשים תוכלו ליהנות ממחירים מוזלים על כלל הטיפולים.</div></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">האם כתב השירות מתאים לילדים?<span class="faq-arrow">▼</span></button><div class="faq-answer"><div class="faq-answer-inner">בהחלט! במסלול <span class="en">Dental Gold</span> יש גם כיסוי לאורתודונטיה לילדים.</div></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">איך מצטרפים?<span class="faq-arrow">▼</span></button><div class="faq-answer"><div class="faq-answer-inner">צרו קשר בטלפון 0587-877-877 או שלחו הודעת <span class="en">WhatsApp</span>. ההצטרפות לוקחת דקות ספורות.</div></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">איפה אפשר לקבל טיפול?<span class="faq-arrow">▼</span></button><div class="faq-answer"><div class="faq-answer-inner"><img src="logo-transparent.webp" alt="MyDoctor" class="md-logo"> עובדת עם מעל 6,000 נותני שירות ו-80+ סניפים בפריסה ארצית.</div></div></div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2><img src="iMg and logo/image-CO4KOn0XgL7vM3OGalhMPXtGIlprSl.png" alt="" style="height:28px;vertical-align:middle"> מוכנים לחסוך אלפי שקלים על טיפולי שיניים?</h2>
+    <p>הצטרפו עוד היום לכתב השירות הדנטלי -התחילו ליהנות מטיפולים כבר מחר!</p>
+    <div class="cta-buttons">
+      <a href="tel:0587877877" class="btn" style="background:white;color:var(--primary)"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> 0587-877-877</a>
+      <a href="https://wa.me/972587877877" class="btn btn-whatsapp" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" class="inline-icon"> שלחו הודעה ב-<span class="en">WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM CAROUSEL 1: Problems -->
+<section class="insta-carousel insta-carousel-dark fade-in">
+  <div class="container">
+    <div class="insta-track">
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_ptivl0ptivl0ptiv (2).png" alt="האיום הכלכלי - כשהטיפול הופך לנטל"></div>
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_emmt63emmt63emmt.png" alt="חסם הכניסה - הצהרת בריאות"></div>
+      <div class="insta-card"><img src="iMg and logo/APPROVAL/Gemini_Generated_Image_j6rl7xj6rl7xj6rl.png" alt="המבוי הסתום - אין ביטוח לאדם הפרטי"></div>
+    </div>
+    <div class="insta-dots">
+      <span class="insta-dot active"></span>
+      <span class="insta-dot"></span>
+      <span class="insta-dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section class="business-section fade-in"><div class="container"><div class="business-inner">
+  <div class="business-content">
+    <div class="section-tag" style="background:rgba(85,185,244,0.2);color:var(--primary)"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-iU4rmwBdlMt24UolY2WynkeolDz2nj.png" alt="" style="height:18px;vertical-align:middle"> לבעלי עסקים</div>
+    <h2>דאגו לבריאות השיניים של העובדים -והם ידאגו לעסק</h2>
+    <p>עובד עם כאב שיניים לא ממוקד ולא פרודוקטיבי. הציעו כתב שירות דנטלי כחלק ממערך הרווחה ותראו את ההבדל.</p>
+    <ul class="business-benefits">
+      <li><span class="benefit-check">✓</span> תנאים מיוחדים לעסקים -מחירים קבוצתיים</li>
+      <li><span class="benefit-check">✓</span> הפחתת ימי מחלה הקשורים לשיניים</li>
+      <li><span class="benefit-check">✓</span> שדרוג מערך הרווחה -יתרון לגיוס עובדים</li>
+      <li><span class="benefit-check">✓</span> ניהול פשוט -חשבונית מרוכזת</li>
+      <li><span class="benefit-check">✓</span> ללא הצהרת בריאות לאף עובד</li>
+    </ul>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <a href="tel:0587877877" class="btn btn-accent"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> 0587-877-877 -לפגישת ייעוץ</a>
+      <a href="https://wa.me/972587877877?text=היי, אני בעל עסק ומתעניין בכתב שירות דנטלי לעובדים" class="btn btn-whatsapp" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" class="inline-icon"> <span class="en">WhatsApp</span></a>
+    </div>
+  </div>
+  <div class="business-stats">
+    <div class="business-stat"><div class="stat-number">67%</div><div class="stat-label">מהעובדים מעריכים הטבות בריאות יותר מהעלאת שכר</div></div>
+    <div class="business-stat"><div class="stat-number">3.5</div><div class="stat-label">ימי מחלה שנתיים בממוצע בגלל בעיות שיניים</div></div>
+    <div class="business-stat"><div class="stat-number">92%</div><div class="stat-label">שביעות רצון בקרב עובדים עם כתב שירות דנטלי</div></div>
+    <div class="business-stat"><div class="stat-number">65 ₪</div><div class="stat-label">בלבד לחודש לעובד -השקעה שמחזירה את עצמה</div></div>
+  </div>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo-transparent.webp" alt="MyDoctor">
+      <p>רפואה פרטית מתקדמת בפריסה ארצית. כתבי שירות דנטליים, רפואה משלימה, רופא עד הבית ועוד.</p>
+      <div style="margin-top:16px"><span style="font-size:12px;opacity:0.5">עמוד זה מנוהל ע״י משווק מורשה</span></div>
+    </div>
+    <div class="footer-col"><h4>מסלולים</h4><a href="#"><span class="en">Dental</span>+ -65 ₪/חודש</a><a href="#"><span class="en">Dental Gold</span> -74 ₪/חודש</a><a href="https://en.mydoctor.co.il/wp-content/uploads/עלון-טיפולי-שיניים-ותעריפון-כולל-השוואה.pdf" target="_blank">עלון מידע (PDF)</a></div>
+    <div class="footer-col"><h4>צרו קשר</h4><a href="tel:0587877877"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-y1Z0TGvr67bblbtRo9exj26PTl4f6J.png" alt="" class="inline-icon"> 0587-877-877</a><a href="https://wa.me/972587877877" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-ojyJBpIQ9Ktog9Md3IseRIXqSlExpm.png" alt="" class="inline-icon"> <span class="en">WhatsApp</span></a><a href="https://en.mydoctor.co.il" target="_blank"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-KBUXl6AhDj2IsoZnozHL39yX1acqa5.png" alt="" class="inline-icon"> אתר <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-sm"></a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 משווק מורשה של <img src="logo-transparent.webp" alt="MyDoctor" class="md-logo-sm"></span><span>האתר אינו מהווה תחליף לייעוץ רפואי</span></div>
+</div></footer>
+
+<!-- FLOATING CALC BUTTON -->
+<a href="#calculator" class="floating-calc" id="floatingCalc"><span class="float-icon"><img src="https://lftz25oez4aqbxpq.public.blob.vercel-storage.com/image-HCwnlHIkzR4wXtkTVAySMqAWigIejw.png" alt="" style="height:22px;vertical-align:middle"></span><span>מחשבון חיסכון</span><div class="float-arrow"><span></span><span></span><span></span></div></a>
+
+<script>
+// ===== TREATMENTS DATA (with specific member prices) =====
+const treatments = [
+  {id:"checkup",cat:"בדיקות וצילומים",name:"בדיקת מומחה שגרתית",market:286,member:90},
+  {id:"cleaning",cat:"בדיקות וצילומים",name:"הסרת אבנית ופלאק (שיננית)",market:150,member:88},
+  {id:"xray-pan",cat:"בדיקות וצילומים",name:"צילום פנורמי",market:145,member:100},
+  {id:"xray-ct1",cat:"בדיקות וצילומים",name:"CT לסת אחת",market:600,member:350},
+  {id:"xray-ct2",cat:"בדיקות וצילומים",name:"CT שתי לסתות",market:980,member:660},
+  {id:"fill-1",cat:"סתימות ושחזורים",name:"סתימת אמלגם - משטח אחד",market:370,member:140},
+  {id:"fill-2",cat:"סתימות ושחזורים",name:"סתימת אמלגם - 2 משטחים",market:410,member:190},
+  {id:"fill-back",cat:"סתימות ושחזורים",name:"שחזור אחורי - שרף",market:425,member:290},
+  {id:"fill-front",cat:"סתימות ושחזורים",name:"שחזור קדמי (שן חזית)",market:308,member:220},
+  {id:"root-1",cat:"טיפולי שורש",name:"טיפול שורש - תעלה אחת",market:800,member:260},
+  {id:"root-2",cat:"טיפולי שורש",name:"טיפול שורש - 2 תעלות",market:1000,member:260},
+  {id:"root-3",cat:"טיפולי שורש",name:"טיפול שורש - 3 תעלות",market:1400,member:490},
+  {id:"ext-reg",cat:"עקירות",name:"עקירה רגילה",market:375,member:95},
+  {id:"ext-surg",cat:"עקירות",name:"עקירה כירורגית",market:600,member:440},
+  {id:"crown-zir",cat:"כתרים",name:"כתר זירקוניה",market:4000,member:2100},
+  {id:"crown-por",cat:"כתרים",name:"כתר חרסינה-מתכת",market:2250,member:1190},
+  {id:"crown-imp",cat:"כתרים",name:"כתר זירקוניה על שתל",market:4000,member:2100},
+  {id:"impl-surg",cat:"שתלים",name:"שתל דנטלי (ניתוח)",market:3000,member:1650},
+  {id:"impl-base",cat:"שתלים",name:"מבנה לשתל (אבטמנט)",market:1150,member:590},
+  {id:"impl-crown",cat:"שתלים",name:"כתר חרסינה על שתל",market:2100,member:1190},
+  {id:"den-full",cat:"תותבות",name:"תותבת שלמה קבועה",market:5000,member:2860},
+  {id:"den-part",cat:"תותבות",name:"תותבת חלקית",market:3003,member:2100},
+  {id:"white-lab",cat:"הלבנה",name:"הלבנה - סדי מעבדה",market:1320,member:950},
+  {id:"white-clinic",cat:"הלבנה",name:"הלבנה אקולוגית במרפאה",market:2256,member:1600},
+  {id:"ortho-full-clear",cat:"יישור שיניים (גולד)",name:"יישור שקוף 2 לסתות (20 פלטות)",market:14300,member:8150,goldOnly:true},
+  {id:"ortho-one-clear",cat:"יישור שיניים (גולד)",name:"יישור שקוף לסת אחת",market:9450,member:5500,goldOnly:true},
+  {id:"ortho-full-cl",cat:"יישור שיניים (גולד)",name:"יישור קלאסי מלא",market:8555,member:5900,goldOnly:true},
+  {id:"ortho-part-cl",cat:"יישור שיניים (גולד)",name:"יישור קלאסי חלקי",market:5150,member:3824,goldOnly:true}
+];
+
+let currentPlan = 'plus';
+const planPrices = { plus: 65, gold: 74, couple: 110 };
+let quantities = {};
+treatments.forEach(function(t) { quantities[t.id] = 0; });
+
+function formatNum(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function renderTreatments() {
+  var container = document.getElementById('simTreatments');
+  container.innerHTML = '';
+  var cats = {};
+  treatments.forEach(function(t) {
+    if (!cats[t.cat]) cats[t.cat] = [];
+    cats[t.cat].push(t);
+  });
+  Object.keys(cats).forEach(function(cat) {
+    var catDiv = document.createElement('div');
+    catDiv.className = 'sim-cat-title';
+    catDiv.innerHTML = cat;
+    if (cat.includes('גולד')) {
+      catDiv.innerHTML += ' <span class="gold-badge">גולד בלבד</span>';
+    }
+    container.appendChild(catDiv);
+    cats[cat].forEach(function(t) {
+      var row = document.createElement('div');
+      row.className = 'sim-treatment-row';
+      if (t.goldOnly) {
+        row.classList.add('gold-only');
+        if (currentPlan === 'gold') row.classList.add('enabled');
+      }
+      row.innerHTML =
+        '<div class="sim-treatment-name">' + t.name + '</div>' +
+        '<div class="sim-treatment-prices">' +
+          '<span class="market-price"><span class="price">\u20AA' + formatNum(t.market) + '</span></span>' +
+          '<span class="member-price"><span class="price">\u20AA' + formatNum(t.member) + '</span></span>' +
+        '</div>' +
+        '<div class="sim-qty">' +
+          '<button type="button" data-id="' + t.id + '" data-dir="-1">\u2212</button>' +
+          '<span id="qty-' + t.id + '">' + quantities[t.id] + '</span>' +
+          '<button type="button" data-id="' + t.id + '" data-dir="1">+</button>' +
+        '</div>';
+      container.appendChild(row);
+    });
+  });
+  container.querySelectorAll('.sim-qty button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var id = this.getAttribute('data-id');
+      var dir = parseInt(this.getAttribute('data-dir'));
+      quantities[id] = Math.max(0, Math.min(20, quantities[id] + dir));
+      document.getElementById('qty-' + id).textContent = quantities[id];
+      updateSummary();
+    });
+  });
+}
+
+function updateSummary() {
+  var totalMarket = 0;
+  var totalMember = 0;
+  treatments.forEach(function(t) {
+    if (t.goldOnly && currentPlan !== 'gold') return;
+    var qty = quantities[t.id];
+    totalMarket += t.market * qty;
+    totalMember += t.member * qty;
+  });
+  var savings = totalMarket - totalMember;
+  var pct = totalMarket > 0 ? Math.round((savings / totalMarket) * 100) : 0;
+  var monthPrice = planPrices[currentPlan];
+  var months = monthPrice > 0 ? Math.floor(savings / monthPrice) : 0;
+
+  // Donut chart
+  var circumference = 2 * Math.PI * 60;
+  var offset = circumference - (circumference * pct / 100);
+  document.getElementById('donutFill').style.strokeDashoffset = offset;
+  document.getElementById('donutPercent').textContent = pct + '%';
+
+  // Cost rows
+  document.getElementById('sumMarket').innerHTML = '<span class="price">\u20AA' + formatNum(totalMarket) + '</span>';
+  document.getElementById('sumOurs').innerHTML = '<span class="price">\u20AA' + formatNum(totalMember) + '</span>';
+
+  // Savings card
+  document.getElementById('sumSavings').innerHTML = '<span class="price">\u20AA' + formatNum(savings) + '</span>';
+
+  // Months
+  document.getElementById('sumMonths').textContent = months;
+
+  // Fee line
+  document.getElementById('sumFeeLine').innerHTML = 'דמי מנוי <span class="price">\u20AA' + monthPrice + '</span>/חודש';
+}
+
+// Plan tabs
+document.querySelectorAll('.sim-plan-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.sim-plan-tab').forEach(function(t) { t.classList.remove('active', 'gold-active'); });
+    var plan = this.getAttribute('data-plan');
+    this.classList.add(plan === 'gold' ? 'gold-active' : 'active');
+    currentPlan = plan;
+    renderTreatments();
+    updateSummary();
+  });
+});
+
+renderTreatments();
+updateSummary();
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = '0'; });
+  if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hide floating calc when calculator is in view
+const calcSection = document.getElementById('calculator');
+const floatingBtn = document.getElementById('floatingCalc');
+const calcObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { floatingBtn.style.opacity = e.isIntersecting ? '0' : '1'; floatingBtn.style.pointerEvents = e.isIntersecting ? 'none' : 'auto'; });
+}, { threshold: 0.2 });
+calcObserver.observe(calcSection);
+
+// Instagram carousel dot tracking
+document.querySelectorAll('.insta-track').forEach(function(track) {
+  var dots = track.parentElement.querySelectorAll('.insta-dot');
+  if (!dots.length) return;
+  track.addEventListener('scroll', function() {
+    var scrollLeft = track.scrollLeft;
+    var cardWidth = track.querySelector('.insta-card').offsetWidth + 20;
+    var idx = Math.round(scrollLeft / cardWidth);
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  });
+});
+</script>
+</body>
+</html>
